@@ -1,5 +1,4 @@
 ---
-
 snapraid_install: true
 snapraid_runner: true
 
@@ -19,6 +18,7 @@ snapraid_runner_email_sendon: "error"
 snapraid_runner_smtp_host: smtp.gmail.com
 snapraid_runner_smtp_port: 465
 snapraid_runner_use_ssl: true
+snapraid_runner_use_tls: false
 
 snapraid_content_files:
   - /var/snapraid.content
@@ -39,7 +39,12 @@ snapraid_runner_touch: true
 snapraid_runner_delete_threshold: 250
 
 snapraid_runner_cron_jobs:
-  - { job: '{{ snapraid_runner_command }}', name: 'snapraid_runner', weekday: '*', hour: '01' }
+  - {
+      job: "{{ snapraid_runner_command }}",
+      name: "snapraid_runner",
+      weekday: "*",
+      hour: "01",
+    }
 
 snapraid_sync_schedule:
   minute: 0
